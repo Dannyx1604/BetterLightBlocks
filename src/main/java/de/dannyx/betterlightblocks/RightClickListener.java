@@ -10,6 +10,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Objects;
+
 public class RightClickListener implements Listener {
     @EventHandler
     public void onPlayerRightClick(PlayerInteractEvent e) {
@@ -24,7 +26,7 @@ public class RightClickListener implements Listener {
             return;
         }
 
-        if (!p.hasPermission((String) BetterLightBlocks.getPluginConfig().get("permission-name"))) {
+        if (!p.hasPermission(BetterLightBlocks.perm)) {
             return;
         }
 

@@ -6,19 +6,17 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
 
 public final class BetterLightBlocks extends JavaPlugin {
-
-    public static FileConfiguration getPluginConfig() {
-        File file = new File(String.valueOf(BetterLightBlocks.getPlugin(BetterLightBlocks.class).getDataFolder()), "config.yml");
-
-        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-
-        return config;
-    }
+    public static String perm;
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        FileConfiguration config = getConfig();
+        perm = (String) config.get("permission-name");
+
         Bukkit.getPluginManager().registerEvents(new RightClickListener(), this);
     }
 
@@ -26,4 +24,6 @@ public final class BetterLightBlocks extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
+
+
 }
