@@ -1,0 +1,4 @@
+name: BetterLightBlocks
+version: '1.0-SNAPSHOT'
+main: de.dannyx.betterlightblocks.BetterLightBlocks
+api-version: '1.20'
